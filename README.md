@@ -19,9 +19,6 @@ https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft
 
 ### 🔗 CodeSandbox URL  
 ```
-### 🔗 API for Skip Data  
-Skip options are retrieved from:  
-```
 https://codesandbox.io/p/github/usamabutt19/frontend-code-challenge/master
 ```
 
