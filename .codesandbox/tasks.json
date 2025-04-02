@@ -6,6 +6,10 @@
       "command": "npm install"
     }
   ],
+  "container": {
+    "node": "20", // Or your desired Node version
+    "port": 5173 // The port your development server listens on
+  },
 
   // These tasks can be run from CodeSandbox. Running one will open a log in the app.
   "tasks": {
