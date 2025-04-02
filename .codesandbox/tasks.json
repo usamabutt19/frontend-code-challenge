@@ -17,14 +17,6 @@
         "port": 5173
       }
     },
-    "preview": {
-      "name": "preview",
-      "command": "npm run dev",
-      "runAtStart": true,
-      "preview": {
-        "port": 5173
-      }
-    },
     "build": {
       "name": "build",
       "command": "npm run build",
@@ -33,6 +25,11 @@
     "lint": {
       "name": "lint",
       "command": "npm run lint",
+      "runAtStart": false
+    },
+    "preview": {
+      "name": "preview",
+      "command": "npm run preview",
       "runAtStart": false
     }
   }
