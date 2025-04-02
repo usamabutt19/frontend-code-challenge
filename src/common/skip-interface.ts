@@ -5,4 +5,5 @@ export interface Skip {
   price: number;
   hirePeriod: number;
   privateProperty: boolean;
+  allowHeavyWaste: boolean;
 }

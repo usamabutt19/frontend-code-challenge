@@ -22,6 +22,7 @@ export default function SkipCard({
         bg-gray-900 rounded-lg p-2 md:p-4 overflow-hidden transition-all duration-300
         ${isSelected ? "border-2 border-blue-600" : "border-2 border-gray-800"}
         ${isHovered ? "shadow-lg shadow-blue-500/20 scale-[1.02]" : ""}
+        ${!skip.allowHeavyWaste ? "cursor-not-allowed opacity-50" : ""}
       `}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -38,9 +39,19 @@ export default function SkipCard({
           </div>
         </Fade>
         {skip.privateProperty && (
-          <div className="text-nowrap absolute text-xs bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-yellow-400 px-3 py-1 rounded-md font-medium flex items-center">
+          <div
+            className={`text-nowrap absolute text-xs ${
+              !skip.allowHeavyWaste ? "bottom-12" : "bottom-4"
+            } left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-yellow-400 px-3 py-1 rounded-md font-medium flex items-center`}
+          >
             <AlertTriangle className="mr-2 size-4" />
             Private Property Only
+          </div>
+        )}
+        {!skip.allowHeavyWaste && (
+          <div className="text-nowrap absolute text-xs bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-red-600 px-3 py-1 rounded-md font-medium flex items-center">
+            <AlertTriangle className="mr-2 size-4" />
+            Not Suitable for Heavy Waste
           </div>
         )}
       </div>
@@ -66,11 +77,13 @@ export default function SkipCard({
         </Zoom>
         <button
           onClick={() => onSelectSkip(skip.id)}
+          disabled= {!skip.allowHeavyWaste}
           className={`w-full font-semibold py-3 px-4 rounded-md flex items-center justify-center transition-colors ${
             isSelected
               ? "bg-blue-600 text-white"
               : "bg-gray-800 hover:bg-gray-700 text-white"
-          }`}
+          }
+          ${!skip.allowHeavyWaste ? "cursor-not-allowed" : ""}`}
         >
           {isSelected ? "Selected" : "Select This Skip"}
           {!isSelected && <ArrowRight className="ml-2 size-4" />}

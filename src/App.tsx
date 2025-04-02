@@ -33,6 +33,7 @@ export default function SkipSelection() {
             price: skip.price_before_vat + skip.vat,
             hirePeriod: skip.hire_period_days,
             privateProperty: !skip.allowed_on_road,
+            allowHeavyWaste: skip.allows_heavy_waste,
           })
         );
 
